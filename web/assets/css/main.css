@@ -1,0 +1,294 @@
+
+:root{
+    --brand:#4f46e5;
+    --ink:#111827;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --bad:#dc2626;
+    --ok:#15803d
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+    color:var(--ink);
+    background:#fff;
+    -webkit-text-size-adjust:100%;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility
+}
+a{
+    color:var(--brand);
+    text-decoration:none;
+    font-weight:600;
+    transition:color .2s
+}
+a:hover{
+    text-decoration:underline
+}
+input,select,button{
+    font:inherit
+}
+:focus-visible{
+    outline:2px solid var(--brand);
+    outline-offset:2px
+}
+
+:root{
+    --bg:#f8f9fc;
+    --card:#fff;
+    --edge:#e8eaef;
+    --txt:#111827;
+    --dim:#6b7280;
+    --inp:#fff;
+    --acc:#4f46e5;
+    --accT:#fff;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.04);
+    --shadow-md:0 4px 16px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+    --shadow-lg:0 12px 40px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:20px;
+    --radius-xl:24px
+}
+@media(prefers-color-scheme:dark){
+    :root:not([data-theme=light]){
+        --bg:#0e1117;
+        --card:#161a23;
+        --edge:#262c39;
+        --txt:#e8eaf1;
+        --dim:#98a0b3;
+        --inp:#1c212c;
+        --acc:#6366f1;
+        --accT:#fff;
+        --shadow-sm:0 1px 2px rgba(0,0,0,.2);
+        --shadow-md:0 4px 16px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.2);
+        --shadow-lg:0 12px 40px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2)
+    }
+}
+:root[data-theme=dark]{
+    --bg:#0e1117;
+    --card:#161a23;
+    --edge:#262c39;
+    --txt:#e8eaf1;
+    --dim:#98a0b3;
+    --inp:#1c212c;
+    --acc:#6366f1;
+    --accT:#fff;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.2);
+    --shadow-md:0 4px 16px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.2);
+    --shadow-lg:0 12px 40px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2)
+}
+body{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    place-items:center;
+    padding:28px 20px;
+    background:var(--bg);
+    color:var(--txt);
+    transition:background .3s ease,color .3s ease
+}
+.box{
+    width:100%;
+    max-width:420px;
+    background:var(--card);
+    border:1px solid var(--edge);
+    border-radius:var(--radius-xl);
+    padding:40px 36px;
+    position:relative;
+    box-shadow:var(--shadow-lg);
+    transition:background .3s ease,border-color .3s ease,box-shadow .3s ease
+}
+.tog{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:38px;
+    height:38px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    background:none;
+    border:1px solid var(--edge);
+    color:var(--dim);
+    display:grid;
+    place-items:center;
+    transition:all .2s ease
+}
+.tog:hover{
+    background:var(--bg);
+    color:var(--txt);
+    border-color:var(--dim);
+    transform:scale(1.05)
+}
+.tog svg{
+    width:17px;
+    height:17px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:2
+}
+.mark{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    background:var(--acc);
+    color:var(--accT);
+    display:grid;
+    place-items:center;
+    font-weight:800;
+    margin-bottom:22px;
+    font-size:1.1rem;
+    box-shadow:0 4px 14px rgba(79,70,229,.25)
+}
+h1{
+    font-size:1.5rem;
+    font-weight:700;
+    letter-spacing:-.03em;
+    margin-bottom:8px;
+    line-height:1.2
+}
+.sub{
+    color:var(--dim);
+    font-size:.92rem;
+    margin-bottom:28px;
+    line-height:1.5
+}
+label{
+    display:block;
+    font-size:.82rem;
+    font-weight:600;
+    margin-bottom:7px;
+    letter-spacing:.01em;
+    color:var(--dim)
+}
+.field{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--edge);
+    border-radius:var(--radius-sm);
+    font-size:.95rem;
+    margin-bottom:18px;
+    background:var(--inp);
+    color:var(--txt);
+    transition:all .2s ease;
+    box-shadow:var(--shadow-sm)
+}
+.field::placeholder{
+    color:var(--dim);
+    opacity:.7
+}
+.field:hover{
+    border-color:var(--dim)
+}
+.field:focus{
+    outline:none;
+    border-color:var(--acc);
+    box-shadow:0 0 0 4px rgba(99,102,241,.15),var(--shadow-sm)
+}
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+    font-size:.86rem;
+    color:var(--dim)
+}
+.row label{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin:0;
+    font-weight:500;
+    color:var(--dim)
+}
+.row input{
+    accent-color:var(--acc)
+}
+.row a,.foot a{
+    color:var(--acc);
+    font-weight:600
+}
+.btn{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:var(--radius-sm);
+    background:var(--acc);
+    color:var(--accT);
+    font-size:.96rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .2s ease;
+    box-shadow:0 2px 8px rgba(79,70,229,.25);
+    letter-spacing:.01em
+}
+.btn:hover{
+    filter:brightness(1.06);
+    box-shadow:0 4px 14px rgba(79,70,229,.35);
+    transform:translateY(-1px)
+}
+.btn:active{
+    transform:translateY(0);
+    box-shadow:0 1px 4px rgba(79,70,229,.2)
+}
+.foot{
+    margin-top:24px;
+    text-align:center;
+    font-size:.88rem;
+    color:var(--dim)
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        transition:none!important;
+        animation:none!important
+    }
+}
+
+/* ==========================================================================
+   Google Sign-In Styles
+   ========================================================================== */
+
+/* Divider ("or") styling */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--dim);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--edge)
+}
+
+.divider span {
+    padding: 0 14px;
+    text-transform: lowercase
+}
+
+/* Google Button Wrapper & Override */
+.g_id_signin {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+/* Force the Google iframe button to match the form field radius & width */
+.g_id_signin > div,
+.g_id_signin iframe {
+    width: 100% !important;
+    border-radius: var(--radius-sm) !important
+}
