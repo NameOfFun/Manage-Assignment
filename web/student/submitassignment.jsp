@@ -116,9 +116,6 @@
                                 <p class="empty"><c:out value="${row.blockedReason}"/></p>
                             </c:when>
                             <c:otherwise>
-                                <c:if test="${row.pastDue}">
-                                    <p class="form-hint">The due date has passed. Your work will be marked as late.</p>
-                                </c:if>
                                 <form class="assignment-form" method="post" enctype="multipart/form-data"
                                       action="${ctx}/myassignments?id=${a.assignmentId}" data-submit-once>
                                     <div>
@@ -132,7 +129,7 @@
                                                placeholder="https://github.com/your-group/your-project"
                                                value="<c:out value='${formLink}'/>">
                                     </div>
-                                    <p class="form-hint">One submission per group, maximum file size 20 MB. You can replace it until it is graded.</p>
+                                    <p class="form-hint">One submission per group, maximum file size 20 MB. You can replace it until the due date (<c:out value="${a.dueDateText}"/>) or until it is graded.</p>
                                     <button class="button button-primary button-wide" type="submit">Submit</button>
                                 </form>
                             </c:otherwise>

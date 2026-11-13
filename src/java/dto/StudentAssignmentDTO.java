@@ -47,7 +47,8 @@ public class StudentAssignmentDTO {
     }
 
     public boolean isPastDue() {
-        return assignment.getDueDate().isBefore(LocalDateTime.now());
+        LocalDateTime dueDate = assignment.getDueDate();
+        return dueDate != null && dueDate.isBefore(LocalDateTime.now());
     }
 
     /** Why the group cannot submit now, or null if it can. */
@@ -57,6 +58,9 @@ public class StudentAssignmentDTO {
         }
         if (isClosed()) {
             return "This assignment is closed and no longer accepts submissions.";
+        }
+        if (isPastDue()) {
+            return "The due date has passed. This assignment no longer accepts submissions.";
         }
         if (isGraded()) {
             return "This submission has already been graded and cannot be changed.";
